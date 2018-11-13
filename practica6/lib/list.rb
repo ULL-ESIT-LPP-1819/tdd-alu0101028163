@@ -9,17 +9,33 @@ attr_reader :head, :tail, :size
   end
 
   def push_back(node)
-    aux = @tail
-    @tail = node
-    node.prev = aux
+
+    if @size == 0
+        @tail = node
+        @head = node
+    else
+      aux = @tail
+      @tail = node
+      node.prev = aux
+    end
+
     @size += 1
+
   end
 
   def push_front(node)
-    aux = @head
-    @head = node
-    node.next = aux
+
+    if @size == 0
+        @tail = node
+        @head = node
+    else
+      aux = @head
+      @head = node
+      node.next = aux
+    end
+
     @size += 1
+
   end
 
   def pop_front()
