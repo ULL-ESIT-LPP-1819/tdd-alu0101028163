@@ -62,7 +62,7 @@ end
                 expect(@lista.head).to eq(@nodo2)
                 @lista.pop_front
                 expect(@lista.head).to eq(@nodo1)
-                end
+              end
           end
 
     end
