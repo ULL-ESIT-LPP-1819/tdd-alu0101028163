@@ -40,4 +40,12 @@ attr_reader :head, :tail, :size
     @size -= 1
   end
 
+  def [](position)
+    aux = @head
+      position.times do
+        aux = aux.next
+      end
+    aux
+  end
+
 end
