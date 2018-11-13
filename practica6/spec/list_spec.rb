@@ -4,8 +4,11 @@ RSpec.describe List do
 
 before :each do
   @lista = List.new()
-  @nodo1 = Struct.new(:prev, :next, :value).new(nil,nil,Etiqueta.new([2380.24, 572.76], [17.3,10,12], [41.2,4.15,5.12], 3.3 , 2.4, 1.2, 0, false, 0, 0))
-  @nodo2 = Struct.new(:prev, :next, :value).new(nil,nil,Etiqueta.new([2380.24, 572.76], [17.3,10,12], [41.2,4.15,5.12], 3.3 , 2.4, 1.2, 0, false, 0, 0))
+  @nodo1 = Struct.new(:prev, :next, :value).new(nil,nil,Etiqueta.new([2380.24, 572.76], [17.3,10,12], [41.2,4.15,5.12], 3.3 , 2.4, 5, 0, false, 0, 0))
+  @nodo2 = Struct.new(:prev, :next, :value).new(nil,nil,Etiqueta.new([2380.24, 572.76], [17.3,10,12], [41.2,4.15,5.12], 3.3 , 2.4, 6, 0, false, 0, 0))
+  @nodo3 = Struct.new(:prev, :next, :value).new(nil,nil,Etiqueta.new([2380.24, 572.76], [17.3,10,12], [41.2,4.15,5.12], 3.3 , 2.4, 3, 0, false, 0, 0))
+  @nodo4 = Struct.new(:prev, :next, :value).new(nil,nil,Etiqueta.new([2380.24, 572.76], [17.3,10,12], [41.2,4.15,5.12], 3.3 , 2.4, 2, 0, false, 0, 0))
+  @nodo5 = Struct.new(:prev, :next, :value).new(nil,nil,Etiqueta.new([2380.24, 572.76], [17.3,10,12], [41.2,4.15,5.12], 3.3 , 2.4, 1, 0, false, 0, 0))
 
 end
 
@@ -95,6 +98,28 @@ end
             it "podemos acceder a una posición concreta de la lista" do
               @lista.push_back(@nodo1)
               expect(@lista[0]).to eq(@nodo1)
+            end
+          end
+
+          context "Cuando utilizamos el método clasificar" do
+            it "la lista clasifica las etiquetas según sus gramos de sal" do
+              @lista.push_back(@nodo1)
+              @lista.push_back(@nodo2)
+              @lista.push_back(@nodo3)
+              @lista.push_back(@nodo4)
+              @lista.push_back(@nodo5)
+              expect(@lista[0].value.sal).to eq(5)
+              expect(@lista[1].value.sal).to eq(6)
+              expect(@lista[2].value.sal).to eq(3)
+              expect(@lista[3].value.sal).to eq(2)
+              expect(@lista[4].value.sal).to eq(1)
+              @lista.clasificar
+              expect(@lista[0].value.sal).to eq(1)
+              expect(@lista[1].value.sal).to eq(2)
+              expect(@lista[2].value.sal).to eq(3)
+              expect(@lista[3].value.sal).to eq(5)
+              expect(@lista[4].value.sal).to eq(6)
+
             end
           end
 

@@ -16,7 +16,8 @@ attr_reader :head, :tail, :size
     else
       aux = @tail
       @tail = node
-      node.prev = aux
+      @tail.prev = aux
+      aux.next = tail
     end
 
     @size += 1
@@ -31,7 +32,8 @@ attr_reader :head, :tail, :size
     else
       aux = @head
       @head = node
-      node.next = aux
+      @head.next = aux
+      aux.prev = @head
     end
 
     @size += 1
