@@ -73,6 +73,24 @@ end
               end
           end
 
+          context "Cuando expulsamos un elemento por medio de pop_back" do
+              it "Head debería de apuntar al nodo siguiente del que apuntada" do
+                @lista.push_back(@nodo1)
+                @lista.push_back(@nodo2)
+                expect(@lista.tail).to eq(@nodo2)
+                @lista.pop_back
+                expect(@lista.tail).to eq(@nodo1)
+              end
+
+              it "Y el tamaño de la lista debería decrementar en una unidad" do
+                @lista.push_back(@nodo1)
+                @lista.push_back(@nodo2)
+                prev_size = @lista.size
+                @lista.pop_back
+                expect(@lista.size).to eq(prev_size - 1)
+              end
+          end
+
     end
 
   end
