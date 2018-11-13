@@ -16,4 +16,12 @@ context "Habiendo creado una lista" do
     end
 end
 
+context "Cuando empujamos un elemento por medio de un push_back" do
+    @nodo = Struct.new(:prev, :next, :value).new(nil,nil,Etiqueta.new([2380.24, 572.76], [17.3,10,12], [41.2,4.15,5.12], 3.3 , 2.4, 1.2, 0, false, 0, 0))
+    @lista.push_back(@nodo)
+    it "Tail debería de apuntar a dicho objeto" do
+       expect(@lista.tail).to eq(@nodo)
+    end
+end
+
 end
