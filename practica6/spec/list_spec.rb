@@ -63,6 +63,14 @@ end
                 @lista.pop_front
                 expect(@lista.head).to eq(@nodo1)
               end
+
+              it "Y el tamaño de la lista debería decrementar en una unidad" do
+                @lista.push_front(@nodo1)
+                @lista.push_front(@nodo2)
+                prev_size = @lista.size
+                @lista.pop_front
+                expect(@lista.size).to eq(prev_size - 1)
+              end
           end
 
     end
