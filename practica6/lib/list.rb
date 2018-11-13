@@ -31,4 +31,13 @@ attr_reader :head, :tail, :size
     @size -= 1
   end
 
+  def pop_back()
+    aux = @tail
+    @tail = @tail.prev
+    @tail.next = nil
+    aux.next = nil
+    aux.prev = nil
+    @size -= 1
+  end
+
 end
