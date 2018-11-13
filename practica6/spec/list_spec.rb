@@ -22,9 +22,15 @@ end
                 @lista.push_back(@nodo)
                 expect(@nodo.prev).to eq(nodo_previo_tail)
               end
-              it "y Tail debería de apuntar al nuevo nodo" do
+              it "Tail debería de apuntar al nuevo nodo" do
                 @lista.push_back(@nodo)
                 expect(@lista.tail).to eq(@nodo)
+              end
+
+              it "Y el tamaño debería incrementarse en una unidad " do
+                @lista.push_back(@nodo)
+                actual_size = @lista.size
+                expect(@lista.size).to eq(actual_size + 1)
               end
         end
 
@@ -37,6 +43,12 @@ end
                 it "y Head debería de apuntar al nuevo nodo" do
                   @lista.push_front(@nodo)
                   expect(@lista.head).to eq(@nodo)
+                end
+
+                it "Y el tamaño debería incrementarse en una unidad " do
+                  @lista.push_front(@nodo)
+                  actual_size = @lista.size
+                  expect(@lista.size).to eq(actual_size + 1)
                 end
           end
     end
