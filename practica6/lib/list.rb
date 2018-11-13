@@ -28,6 +28,7 @@ attr_reader :head, :tail, :size
     @head.prev = nil
     aux.prev = nil
     aux.next = nil
+    @size -= 1
   end
 
 end
