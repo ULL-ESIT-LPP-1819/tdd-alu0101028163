@@ -91,6 +91,13 @@ end
               end
           end
 
+          context "Cuando utilizamos el método [] " do
+            it "podemos acceder a una posición concreta de la lista" do
+              @lista.push_back(@nodo1)
+              expect(@lista[0]).to eq(@nodo1)
+            end
+          end
+
     end
 
   end
