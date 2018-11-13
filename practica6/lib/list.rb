@@ -8,4 +8,10 @@ def initialize()
   @size = 0
 end
 
+def push_back(node)
+  aux = @tail
+  @tail = node
+  node.prev = aux
+end
+
 end
