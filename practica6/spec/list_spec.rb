@@ -27,6 +27,18 @@ end
                 expect(@lista.tail).to eq(@nodo)
               end
         end
+
+        context "Cuando empujamos un elemento por medio de un push_front" do
+                it "El nodo debería apuntar al nodo al que previamente apuntaba head" do
+                  nodo_previo_head = @lista.head
+                  @lista.push_front(@nodo)
+                  expect(@nodo.next).to eq(nodo_previo_head)
+                end
+                it "y Head debería de apuntar al nuevo nodo" do
+                  @lista.push_front(@nodo)
+                  expect(@lista.head).to eq(@nodo)
+                end
+          end
     end
 
   end
