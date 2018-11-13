@@ -14,4 +14,11 @@ def push_back(node)
   node.prev = aux
 end
 
+def push_front(node)
+  aux = @head
+  @head = node
+  node.next = aux
+end
+
+
 end
