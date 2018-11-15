@@ -66,4 +66,57 @@ attr_reader :head, :tail, :size
     aux
   end
 
+  def swap(a,b)
+
+    if @size == 2
+      a.prev = b
+      b.next = a
+      @tail = a
+      @head = b
+    elsif a == @head
+      a.next = b.next
+      b.prev = nil
+      b.next.prev = a
+      a.prev = b
+      b.next = a
+      @head = b
+    elsif b == @tail
+      a.next = nil
+      b.prev = a.prev
+      a.prev.next = b
+      a.prev = b
+      b.next = a
+      @tail = a
+    else
+      a.next = b.next
+      b.prev = a.prev
+      a.prev.next = b
+      b.next.prev = a
+      a.prev = b
+      b.next = a
+    end
+
+
+
+    end
+
+  def clasificar
+    ordenado = false
+    aux_ = @head
+    while ordenado != true do
+      ordenado = true
+      i = 0
+      aux = @head
+      (@size - 1).times do
+        if aux.value.sal > aux.next.value.sal
+           self.swap(aux, aux.next)
+           ordenado = false
+           aux = aux.prev
+          end
+        aux = aux.next
+        end
+      end
+
+    end
+
 end
