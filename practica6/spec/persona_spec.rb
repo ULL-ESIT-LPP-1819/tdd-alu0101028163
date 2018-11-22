@@ -3,7 +3,7 @@ require "spec_helper"
 RSpec.describe Persona do
 
   before :all do
-    @persona = Persona.new("Adrian", 81.5, 1.68, 20)
+    @persona = Persona.new("Adrian", 81.5, 1.68, 20, 0)
   end
 
   context "Habiendo una persona" do
@@ -18,6 +18,9 @@ RSpec.describe Persona do
     end
     it "Debe tener una edad" do
       expect(@persona.edad).to eq(20)
+    end
+    it "Debe tener definido un sexo" do
+      expect(@persona.sexo).to eq(0)
     end
   end
 
