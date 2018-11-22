@@ -36,4 +36,20 @@ RSpec.describe Paciente do
       end
     end
 
+    context "Debe tener definidos los pliegues" do
+      it "tricipital" do
+        expect(@paciente.pl_tricipital).to eq(23.4)
+      end
+      it "bicipital" do
+        expect(@paciente.pl_bicipital).to eq(24.4)
+      end
+      it "subescapular" do
+        expect(@paciente.pl_subescapular).to eq(26.4)
+      end
+      it "suprailiaco" do
+        expect(@paciente.pl_suprailiaco).to eq(28.4)
+      end
+
+    end
+
 end
