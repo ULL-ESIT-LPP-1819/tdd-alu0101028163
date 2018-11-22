@@ -3,7 +3,7 @@ require "spec_helper.rb"
 RSpec.describe Paciente do
 
   before :all do
-    @paciente = Paciente.new("Adrian", 81.5, 1.68, 20, 0)
+    @paciente = Paciente.new("Adrian", 81.5, 1.68, 20, 0, 135.23, 146.32, 32.2)
   end
 
   context "Habiendo un paciente" do
@@ -26,13 +26,13 @@ RSpec.describe Paciente do
 
   context "Debe tener definidas las circunferencias" do
       it "de su cintura" do
-        expect(@persona.cir_cintura).to eq(135.23)
+        expect(@paciente.cir_cintura).to eq(135.23)
       end
       it "de su cadera" do
-        expect(@persona.cir_cadera).to eq(146.32)
+        expect(@paciente.cir_cadera).to eq(146.32)
       end
       it "de su brazo" do
-        expect(@persona.cir_brazo).to eq(32.2)
+        expect(@paciente.cir_brazo).to eq(32.2)
       end
     end
 
