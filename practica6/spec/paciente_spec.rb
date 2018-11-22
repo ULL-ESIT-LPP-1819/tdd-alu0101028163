@@ -3,7 +3,7 @@ require "spec_helper.rb"
 RSpec.describe Paciente do
 
   before :all do
-    @paciente = Paciente.new("Adrian", 81.5, 1.68, 20, 0, 135.23, 146.32, 32.2)
+    @paciente = Paciente.new("Adrian", 81.5, 1.68, 20, 0, 135.23, 146.32, 32.2, 23.4, 24.4, 26.4, 28.4)
   end
 
   context "Habiendo un paciente" do
