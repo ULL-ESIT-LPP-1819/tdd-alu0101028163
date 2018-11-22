@@ -3,7 +3,7 @@ require "spec_helper"
 RSpec.describe Persona do
 
   before :all do
-    @persona = Persona.new("Adrian")
+    @persona = Persona.new("Adrian", 81.5)
   end
 
   context "Habiendo una persona" do
