@@ -10,6 +10,9 @@ RSpec.describe Persona do
     it "Debe tener un nombre" do
       expect(@persona.nombre).to eq("Adrian")
     end
+    it "Debe tener un peso" do
+      expect(@persona.peso).to eq(81.5)
+    end
   end
 
 end
