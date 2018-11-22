@@ -1,4 +1,4 @@
-require 'etiqueta'
+require "spec_helper"
 
 RSpec.describe Etiqueta do
 
@@ -10,7 +10,7 @@ RSpec.describe Etiqueta do
   context "Habiendo una etiqueta" do
 
     it "debe haber un valor energético" do
-      expect(@etiqueta.valor_energetico)
+      expect(@etiqueta).to respond_to(:valor_energetico)
     end
 
     context "que debe ser cero" do
@@ -21,7 +21,7 @@ RSpec.describe Etiqueta do
     end
 
     it "debe haber una cantidad de grasas" do
-      expect(@etiqueta.grasas)
+      expect(@etiqueta).to respond_to(:grasas)
     end
 
     it "de las cuales deben haber saturadas, monoinsaturadas y poliinsaturadas" do
@@ -29,7 +29,7 @@ RSpec.describe Etiqueta do
     end
 
     it "debe haber una cantidad de Hidratos de carbono" do
-      expect(@etiqueta.hidratos_carbono)
+      expect(@etiqueta).to respond_to(:hidratos_carbono)
     end
 
     it "de los cuales deben haber azúcares, polialcoholes y almidón" do
@@ -37,7 +37,7 @@ RSpec.describe Etiqueta do
     end
 
     it "debe haber una cantidad de fibra alimentaria" do
-      expect(@etiqueta.fibra_alimentaria)
+      expect(@etiqueta).to respond_to(:fibra_alimentaria)
     end
 
     context "que debe ser cero" do
@@ -47,7 +47,7 @@ RSpec.describe Etiqueta do
     end
 
     it "debe haber una cantidad de proteinas" do
-    expect(@etiqueta.proteinas)
+    expect(@etiqueta).to respond_to(:proteinas)
     end
 
     context "que debe ser cero" do
@@ -57,7 +57,7 @@ RSpec.describe Etiqueta do
     end
 
     it "debe haber una cantidad de sal" do
-    expect(@etiqueta.sal)
+    expect(@etiqueta).to respond_to(:sal)
     end
 
     context "que debe ser cero" do
@@ -67,7 +67,7 @@ RSpec.describe Etiqueta do
     end
 
     it "debe haber una cantidad de Vitamina" do
-    expect(@etiqueta.vitamina)
+    expect(@etiqueta).to respond_to(:vitamina)
     end
 
     context "que debe ser cero" do

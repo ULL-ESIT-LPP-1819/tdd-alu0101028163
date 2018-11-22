@@ -8,7 +8,9 @@ attr_reader :head, :tail, :size
     @size = 0
   end
 
-  def push_back(node)
+  def push_back(etiqueta)
+
+    node = Struct.new(:prev, :next, :value).new(nil,nil,etiqueta)
 
     if @size == 0
         @tail = node
@@ -24,7 +26,9 @@ attr_reader :head, :tail, :size
 
   end
 
-  def push_front(node)
+  def push_front(etiqueta)
+
+    node = Struct.new(:prev, :next, :value).new(nil,nil,etiqueta)
 
     if @size == 0
         @tail = node

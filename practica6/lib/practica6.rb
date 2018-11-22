@@ -1,5 +1,6 @@
 require "practica6/version"
-require "etiqueta.rb"
+require "practica6/etiqueta"
+require "practica6/list"
 
 module Practica6
   class Error < StandardError; end
