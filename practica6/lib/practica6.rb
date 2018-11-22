@@ -3,6 +3,7 @@ require "practica6/etiqueta"
 require "practica6/list"
 require "practica6/persona"
 require "practica6/paciente"
+require "practica6/paciente_obeso"
 
 module Practica6
   class Error < StandardError; end
