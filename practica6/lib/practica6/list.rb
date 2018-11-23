@@ -104,7 +104,7 @@ attr_reader :head, :tail, :size
 
     end
 
-  def clasificar
+  def clasificar_etiquetas
     ordenado = false
     aux_ = @head
     while ordenado != true do
@@ -122,5 +122,33 @@ attr_reader :head, :tail, :size
       end
 
     end
+
+  def clasificar_imc
+    ordenado = false
+    aux_ = @head
+    while ordenado != true do
+      ordenado = true
+      i = 0
+      aux = @head
+      (@size - 1).times do
+        if aux.value.registro.imc > aux.next.value.registro.imc
+           self.swap(aux, aux.next)
+           ordenado = false
+           aux = aux.prev
+          end
+        aux = aux.next
+        end
+      end
+  end
+
+  def to_s
+    aux_ = @head
+    s = ""
+    while aux_ != nil do
+      s << aux_.value.to_s 
+      aux_ = aux_.next
+    end
+    s
+  end
 
 end

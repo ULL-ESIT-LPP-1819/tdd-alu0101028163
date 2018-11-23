@@ -148,7 +148,8 @@ class Etiqueta
     Tamaño porciones ..... #{@tamanio_porciones} gr"
     end
 
-    s
+    s << "
+    "
 
   end
 

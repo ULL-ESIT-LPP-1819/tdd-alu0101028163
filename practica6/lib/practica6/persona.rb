@@ -9,4 +9,16 @@ class Persona
     @sexo = sexo
   end
 
+  def to_s
+    s = "Nombre: #{@nombre}
+     Peso: #{@peso}
+     Altura: #{@talla}
+     Edad: #{@edad}
+     "
+     if @sexo == 0
+       s << "Sexo: Hombre"
+     else s << "Sexo: Mujer"
+     end
+  end
+
 end

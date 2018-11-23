@@ -14,7 +14,7 @@ RSpec.describe Etiqueta do
     end
 
     context "que debe ser cero" do
-      it "si se le administra el valor cero" do
+              it "si se le administra el valor cero" do
         expect(@etiqueta.valor_energetico[0]).to eq(0)
         expect(@etiqueta.valor_energetico[1]).to eq(0)
       end
