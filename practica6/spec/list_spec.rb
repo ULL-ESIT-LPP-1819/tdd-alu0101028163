@@ -7,8 +7,8 @@ before :each do
   @Etiqueta1 = Etiqueta.new([2380.24, 572.76], [17.3,10,12], [41.2,4.15,5.12], 3.3 , 2.4, 5, 0, false, 0, 0)
   @Etiqueta2 = Etiqueta.new([2180.24, 572.76], [17.3,10,12], [41.2,4.15,5.12], 3.3 , 2.4, 6, 0, false, 0, 0)
   @Etiqueta3 = Etiqueta.new([2280.24, 572.76], [17.3,10,12], [41.2,4.15,5.12], 3.3 , 2.4, 3, 0, false, 0, 0)
-  @Etiqueta4 = Etiqueta.new([2380.24, 572.76], [17.3,10,12], [41.2,4.15,5.12], 3.3 , 2.4, 2, 0, false, 0, 0)
-  @Etiqueta5 = Etiqueta.new([2380.24, 572.76], [17.3,10,12], [41.2,4.15,5.12], 3.3 , 2.4, 1, 0, false, 0, 0)
+  @Etiqueta4 = Etiqueta.new([2381.24, 572.76], [17.3,10,12], [41.2,4.15,5.12], 3.3 , 2.4, 2, 0, false, 0, 0)
+  @Etiqueta5 = Etiqueta.new([2382.24, 572.76], [17.3,10,12], [41.2,4.15,5.12], 3.3 , 2.4, 1, 0, false, 0, 0)
 end
 
 before :all do
@@ -17,6 +17,12 @@ before :all do
   @Paciente3 = Paciente_obeso.new("Adrian", 82.5, 1.68, 20, 0, 135.23, 146.32, 32.2, 23.4, 24.4, 26.4, 22.4)
   @Paciente4 = Paciente_obeso.new("Adrian", 88.5, 1.68, 20, 0, 135.23, 146.32, 32.2, 23.4, 24.4, 26.4, 29.4)
   @Paciente5 = Paciente_obeso.new("Adrian", 83.5, 1.68, 20, 0, 135.23, 146.32, 32.2, 23.4, 24.4, 26.4, 27.4)
+end
+
+before :each do
+  @Registro1 = Registro.new("Adrian", 80, 1.68, 20, 0, 132.3 , 122.3, 140.3 , 12.3 , 15.2, 11.4, 10.5)
+  @Registro2 = Registro.new("Dummy", 120, 1.68, 20, 0, 132.3 , 122.3, 140.3 , 12.3 , 15.2, 11.4, 10.5)
+  @Registro3 = Registro.new("Donkey", 30, 1.68, 20, 0, 132.3 , 122.3, 140.3 , 12.3 , 15.2, 11.4, 10.5)
 end
 
   context "Habiendo creado una lista" do
@@ -175,6 +181,49 @@ end
           end
     end
 
+          context "Si teng una lista de etiquetas de valoración nutricional de invididuos" do
+            it "debo poder ordenarlas con el método sort" do
+              @lista.push_back(@Registro1)
+              @lista.push_back(@Registro2)
+              @lista.push_back(@Registro3)
+              lista2 =  @lista.sort.clone
+
+              expect(lista2[0]).to eq(@Registro3)
+              expect(lista2[1]).to eq(@Registro1)
+              expect(lista2[2]).to eq(@Registro2)
+            end
+            it "debo poder obtener su máximo elemento con el método max" do
+              @lista.push_back(@Registro1)
+              @lista.push_back(@Registro2)
+              @lista.push_back(@Registro3)
+              maxElement = @lista.max
+              expect(maxElement).to eq(@Registro2)
+            end
+            it "debo poder obtener su mínimo elemento con el método min" do
+              @lista.push_back(@Registro1)
+              @lista.push_back(@Registro2)
+              @lista.push_back(@Registro3)
+              minElement = @lista.min
+              expect(minElement).to eq(@Registro3)
+            end
+            it "debo poder seleccionar los elementos que cumplan una condicion" do
+              @lista.push_back(@Registro1)
+              @lista.push_back(@Registro2)
+              @lista.push_back(@Registro3)
+              lista2 = @lista.select{ |registro| registro.nombre == "Adrian"}
+              expect(lista2[0]).to eq(@Registro1)
+            end
+            it "debo poder obtener los resultados de aplicar una condición a la lista" do
+              @lista.push_back(@Registro1)
+              @lista.push_back(@Registro2)
+              @lista.push_back(@Registro3)
+              lista2 = @lista.collect{ |registro| registro.nombre == "Adrian"}
+              expect(lista2[0]).to eq(true)
+              expect(lista2[1]).to eq(false)
+              expect(lista2[1]).to eq(false)
+            end
+          end
+
           context "Si tengo una lista de etiquetas de información nutricional" do
             it "debo poder ordenarlas con el método sort" do
               @lista.push_back(@Etiqueta1)
@@ -185,6 +234,36 @@ end
               expect(lista2[0]).to eq(@Etiqueta2)
               expect(lista2[1]).to eq(@Etiqueta3)
               expect(lista2[2]).to eq(@Etiqueta1)
+            end
+            it "debo poder obtener su máximo elemento con el método max" do
+              @lista.push_back(@Etiqueta1)
+              @lista.push_back(@Etiqueta2)
+              @lista.push_back(@Etiqueta3)
+              maxElement = @lista.max
+              expect(maxElement).to eq(@Etiqueta1)
+            end
+            it "debo poder obtener su mínimo elemento con el método min" do
+              @lista.push_back(@Etiqueta1)
+              @lista.push_back(@Etiqueta2)
+              @lista.push_back(@Etiqueta3)
+              minElement = @lista.min
+              expect(minElement).to eq(@Etiqueta2)
+            end
+            it "debo poder seleccionar los elementos que cumplan una condición" do
+              @lista.push_back(@Etiqueta3)
+              @lista.push_back(@Etiqueta4)
+              @lista.push_back(@Etiqueta5)
+              lista2 =  @lista.select{ |etiqueta| etiqueta.sal == 3 }
+              expect(lista2[0]).to eq(@Etiqueta3)
+            end
+            it "debo poder recolectar los resultados de aplicar una condición" do
+              @lista.push_back(@Etiqueta3)
+              @lista.push_back(@Etiqueta4)
+              @lista.push_back(@Etiqueta5)
+              lista2 =  @lista.collect{ |etiqueta| etiqueta.sal == 3 }
+              expect(lista2[0]).to eq(true)
+              expect(lista2[1]).to eq(false)
+              expect(lista2[2]).to eq(false)
             end
           end
 
