@@ -272,6 +272,22 @@ RSpec.describe Etiqueta do
       etiqueta2 = Etiqueta.new([0,0], [0,0], [0,0,0], 0 , 0, 0, 0, false, 0, 0)
       expect(etiqueta1 <=> etiqueta2).to eq(0)
     end
+    it "se retorna -1 cuando el primer operando es menor que el segundo" do
+      etiqueta1 = Etiqueta.new([2380.24, 572.7], [17.3,10,12], [41.2,4.15,5.12], 3.3 , 2.4, 1.2, 0, false, 0, 0)
+      etiqueta2 = Etiqueta.new([2990.24, 572.76], [17.3,10,12], [41.2,4.15,5.12], 3.3 , 2.4, 1.2, 0, false, 0, 0)
+      expect(etiqueta1 <=> etiqueta2).to eq(-1)
+    end
+    it "se retorna +1 cuando el primer operando es menor que el segundo" do
+      etiqueta1 = Etiqueta.new([2990.24, 572.7], [17.3,10,12], [41.2,4.15,5.12], 3.3 , 2.4, 1.2, 0, false, 0, 0)
+      etiqueta2 = Etiqueta.new([2380.24, 572.76], [17.3,10,12], [41.2,4.15,5.12], 3.3 , 2.4, 1.2, 0, false, 0, 0)
+      expect(etiqueta1 <=> etiqueta2).to eq(1)
+    end
+    it "se retorna nil cuando los operadores no pueden ser comparados" do
+      etiqueta1 = Etiqueta.new([2990.24, 572.7], [17.3,10,12], [41.2,4.15,5.12], 3.3 , 2.4, 1.2, 0, false, 0, 0)
+      etiqueta2 = Etiqueta.new(["foo","foo"], [17.3,10,12], [41.2,4.15,5.12], 3.3 , 2.4, 1.2, 0, false, 0, 0)
+      expect(etiqueta1 <=> etiqueta2).to eq(nil)
+    end
+    it "se puede comparar Etiqueta con lo que sea que respond_to? "
   end
 
 
