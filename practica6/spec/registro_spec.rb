@@ -25,6 +25,18 @@ RSpec.describe Registro do
       Dummy.new("foo")
       expect(registro1 <=> Dummy.new("foo")).to eq(nil)
     end
+    it "se retorna true cuando un operando está entre otros dos" do
+      registro1 = Registro.new("Adrian", 80, 1.68, 20, 0, 132.3 , 122.3, 140.3 , 12.3 , 15.2, 11.4, 10.5)
+      registro2 = Registro.new("Dummy", 40, 1.68, 20, 0, 122.3 , 112.3, 130.3 , 11.3 , 14.2, 10.4, 11.5)
+      registro3 = Registro.new("Dummy", 30, 1.68, 20, 0, 122.3 , 112.3, 130.3 , 11.3 , 14.2, 10.4, 11.5)
+      expect(registro2.between?(registro3,registro1)).to eq(true)
+    end
+    it "se retorna false cuando un operando no está entre otros dos" do
+      registro1 = Registro.new("Adrian", 80, 1.68, 20, 0, 132.3 , 122.3, 140.3 , 12.3 , 15.2, 11.4, 10.5)
+      registro2 = Registro.new("Dummy", 40, 1.68, 20, 0, 122.3 , 112.3, 130.3 , 11.3 , 14.2, 10.4, 11.5)
+      registro3 = Registro.new("Dummy", 30, 1.68, 20, 0, 122.3 , 112.3, 130.3 , 11.3 , 14.2, 10.4, 11.5)
+      expect(registro2.between?(registro1,registro3)).to eq(false)
+    end
 
 
 end
