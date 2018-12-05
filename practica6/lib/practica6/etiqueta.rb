@@ -1,6 +1,10 @@
 class Etiqueta
-
+  include Comparable
   attr_reader :valor_energetico, :grasas , :hidratos_carbono, :fibra_alimentaria, :proteinas, :sal, :vitamina, :porciones, :cantidad_porciones, :tamanio_porciones
+
+  def <=>(etiqueto)
+    @valor_energetico <=> etiqueto.valor_energetico
+  end
 
   def initialize(valor_energetico, grasas, hidratos_carbono, fibra_alimentaria, proteinas, sal, vitamina, porciones , cantidad_porciones, tamanio_porciones)
     @valor_energetico = valor_energetico
