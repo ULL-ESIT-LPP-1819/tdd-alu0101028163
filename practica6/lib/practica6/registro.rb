@@ -1,7 +1,12 @@
 
 class Registro
-
+  include Comparable
   attr_reader :nombre, :peso, :talla, :edad, :sexo, :cir_cintura, :cir_cadera, :cir_brazo, :pl_tricipital, :pl_bicipital, :pl_subescapular, :pl_suprailiaco, :imc
+
+  def <=>(anOther)
+    @imc <=> anOther.imc
+  end
+
   def initialize(nombre, peso, talla, edad, sexo, cir_cintura = nil, cir_cadera = nil, cir_brazo = nil, pl_tricipital = nil, pl_bicipital = nil, pl_subescapular = nil, pl_suprailiaco = nil)
     @nombre = nombre
     @peso = peso
@@ -15,7 +20,7 @@ class Registro
     @pl_bicipital = pl_bicipital
     @pl_subescapular = pl_subescapular
     @pl_suprailiaco = pl_suprailiaco
-    @imc = calcular_imc
+    @imc = self.calcular_imc
   end
 
   def calcular_imc
