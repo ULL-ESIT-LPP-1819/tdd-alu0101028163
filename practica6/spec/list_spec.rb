@@ -176,4 +176,11 @@ end
 
     end
 
+    context "Los objetos de la clase Lista deben de ser enumerables" do
+      it "se ordenan mediante el método sort" do
+        r = sort([@etiqueta1, @etiqueta2, @etiqueta3])
+        expect(r).to eq([@etiqueta3, @etiqueta1, @etiqueta2])
+      end
+    end
+
   end

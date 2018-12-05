@@ -266,7 +266,7 @@ RSpec.describe Etiqueta do
 
 
 
-  context "Los objetos de la clase etiqueta debena ser comparables entre si" do
+  context "Los objetos de la clase etiqueta deben ser comparables entre si" do
     it "se retorna cero cuando ambos operandos son iguales" do
       etiqueta1 = Etiqueta.new([0,0], [0,0], [0,0,0], 0 , 0, 0, 0, false, 0, 0)
       etiqueta2 = Etiqueta.new([0,0], [0,0], [0,0,0], 0 , 0, 0, 0, false, 0, 0)
