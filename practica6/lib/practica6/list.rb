@@ -1,5 +1,5 @@
 class List
-
+include Enumerable
 attr_reader :head, :tail, :size
 
   def initialize()
@@ -145,7 +145,7 @@ attr_reader :head, :tail, :size
     aux_ = @head
     s = ""
     while aux_ != nil do
-      s << aux_.value.to_s 
+      s << aux_.value.to_s
       aux_ = aux_.next
     end
     s

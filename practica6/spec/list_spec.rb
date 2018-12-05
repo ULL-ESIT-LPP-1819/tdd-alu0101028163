@@ -5,8 +5,8 @@ RSpec.describe List do
 before :each do
   @lista = List.new()
   @Etiqueta1 = Etiqueta.new([2380.24, 572.76], [17.3,10,12], [41.2,4.15,5.12], 3.3 , 2.4, 5, 0, false, 0, 0)
-  @Etiqueta2 = Etiqueta.new([2380.24, 572.76], [17.3,10,12], [41.2,4.15,5.12], 3.3 , 2.4, 6, 0, false, 0, 0)
-  @Etiqueta3 = Etiqueta.new([2380.24, 572.76], [17.3,10,12], [41.2,4.15,5.12], 3.3 , 2.4, 3, 0, false, 0, 0)
+  @Etiqueta2 = Etiqueta.new([2180.24, 572.76], [17.3,10,12], [41.2,4.15,5.12], 3.3 , 2.4, 6, 0, false, 0, 0)
+  @Etiqueta3 = Etiqueta.new([2280.24, 572.76], [17.3,10,12], [41.2,4.15,5.12], 3.3 , 2.4, 3, 0, false, 0, 0)
   @Etiqueta4 = Etiqueta.new([2380.24, 572.76], [17.3,10,12], [41.2,4.15,5.12], 3.3 , 2.4, 2, 0, false, 0, 0)
   @Etiqueta5 = Etiqueta.new([2380.24, 572.76], [17.3,10,12], [41.2,4.15,5.12], 3.3 , 2.4, 1, 0, false, 0, 0)
 end
@@ -173,14 +173,18 @@ end
               expect(@lista[4].value.registro.imc).to eq(31.36)
             end
           end
-
     end
 
-    context "Los objetos de la clase Lista deben de ser enumerables" do
-      it "se ordenan mediante el método sort" do
-        r = sort([@etiqueta1, @etiqueta2, @etiqueta3])
-        expect(r).to eq([@etiqueta3, @etiqueta1, @etiqueta2])
-      end
-    end
+          context "Si tengo una lista de etiquetas de información nutricional" do
+            it "debo poder ordenarlas con el método sort" do
+              @lista.push_back(@Etiqueta1)
+              @lista.push_back(@Etiqueta2)
+              @lista.push_back(@Etiqueta3)
+              @lista.sort
+              expect(@lista[0]).to eq(@Etiqueta2)
+              expect(@lista[0]).to eq(@Etiqueta3)
+              expect(@lista[0]).to eq(@Etiqueta1)
+            end
+          end
 
   end
