@@ -8,6 +8,14 @@ attr_reader :head, :tail, :size
     @size = 0
   end
 
+  def each()
+    head_aux = @head
+    while head_aux != nil do
+      yield head_aux.value
+      head_aux = head_aux.next
+    end
+  end
+
   def push_back(etiqueta)
 
     node = Struct.new(:prev, :next, :value).new(nil,nil,etiqueta)

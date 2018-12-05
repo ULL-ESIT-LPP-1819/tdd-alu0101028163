@@ -180,10 +180,11 @@ end
               @lista.push_back(@Etiqueta1)
               @lista.push_back(@Etiqueta2)
               @lista.push_back(@Etiqueta3)
-              @lista.sort
-              expect(@lista[0]).to eq(@Etiqueta2)
-              expect(@lista[0]).to eq(@Etiqueta3)
-              expect(@lista[0]).to eq(@Etiqueta1)
+              lista2 =  @lista.sort.clone
+
+              expect(lista2[0]).to eq(@Etiqueta2)
+              expect(lista2[1]).to eq(@Etiqueta3)
+              expect(lista2[2]).to eq(@Etiqueta1)
             end
           end
 
