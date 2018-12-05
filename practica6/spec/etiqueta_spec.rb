@@ -90,7 +90,8 @@ RSpec.describe Etiqueta do
       almidon ............ 5.12 gr
     Fibra alimentaria .... 3.3 gr
     Proteínas ............ 2.4 gr
-    Sal .................. 1.2 gr})
+    Sal .................. 1.2 gr
+    })
     end
 
   end
@@ -258,13 +259,20 @@ RSpec.describe Etiqueta do
       sum = @etiqueta_.valor_energetico_total()
       expect(sum[1]).to eq(@etiqueta_.valor_energetico[1])
     end
-
-
-
   end
 
+#      etiqueta1 = Etiqueta.new([2380.24, 572.7], [17.3,10,12], [41.2,4.15,5.12], 3.3 , 2.4, 1.2, 0, false, 0, 0)
+#      etiqueta2 = Etiqueta.new([2380.24, 572.76], [17.3,10,12], [41.2,4.15,5.12], 3.3 , 2.4, 1.2, 0, false, 0, 0)
 
 
+
+  context "Los objetos de la clase etiqueta debena ser comparables entre si" do
+    it "se retorna cero cuando ambos operandos son iguales" do
+      etiqueta1 = Etiqueta.new([0,0], [0,0], [0,0,0], 0 , 0, 0, 0, false, 0, 0)
+      etiqueta2 = Etiqueta.new([0,0], [0,0], [0,0,0], 0 , 0, 0, 0, false, 0, 0)
+      expect(etiqueta1 <=> etiqueta2).to eq(0)
+    end
+  end
 
 
 end

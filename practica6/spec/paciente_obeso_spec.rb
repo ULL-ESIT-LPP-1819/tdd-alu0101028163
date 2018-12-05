@@ -64,7 +64,7 @@ end
         expect(@paciente_obeso.pl_suprailiaco).to eq(28.4)
       end
     end
-
+    # respond to
     context "Los pacientes obesos deberían" do
       it "peternecer a la clase a Paciente_obeso" do
         expect(@paciente_obeso.class).to eq(Paciente_obeso)
