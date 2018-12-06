@@ -2,6 +2,20 @@
 class Paciente_obeso < Paciente
 
   attr_reader :cir_cintura, :cir_cadera, :cir_brazo, :pl_tricipital, :pl_bicipital, :pl_subescapular, :pl_suprailiaco, :registro
+
+    # @param nombre [number] nombre del paciente.
+    # @param peso [number] peso del paciente.
+    # @param talla [number] altura del paciente en metros.
+    # @param edad [number] edad del paciente.
+    # @param sexo [number] sexo del paciente, 0 corresponde a hombre y 1 a mujer.
+    # @param cir_cintura [Number] circunferencia de la cintura del paciente.
+    # @param cir_cadera [Number] circunferencia de la cadera del paciente.
+    # @param cir_brazo [Number] circunferencia del brazo del paciente.
+    # @param pl_tricipital [Number] longitud del pliege tricipital del pariente.
+    # @param pl_bicipital [Number] longitud del pliege bicipital del pariente.
+    # @param pl_subescapular [Number] longitud del pliege subescapular del pariente.
+    # @param pl_suprailiaco [Number] longitud del pliege suprailiaco del pariente.
+    # @return [Paciente_Obeso] retorna una nueva instancia del Paciente_Obeso.
     def initialize(nombre, peso, talla, edad, sexo, cir_cintura, cir_cadera, cir_brazo, pl_tricipital, pl_bicipital, pl_subescapular, pl_suprailiaco)
       super(nombre, peso, talla, edad, sexo)
       @cir_cintura = cir_cintura
@@ -14,6 +28,7 @@ class Paciente_obeso < Paciente
       @registro = Registro.new(nombre, peso, talla, edad, sexo, cir_cintura, cir_cadera, cir_brazo, pl_tricipital, pl_bicipital, pl_subescapular, pl_suprailiaco)
     end
 
+    # @return [String] retorna una cadena con la información del paciente obeso.
     def to_s
       s = "Nombre: #{@nombre}
        Peso: #{@peso}

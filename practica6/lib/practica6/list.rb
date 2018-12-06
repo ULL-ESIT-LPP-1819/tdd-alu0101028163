@@ -2,12 +2,14 @@ class List
 include Enumerable
 attr_reader :head, :tail, :size
 
+  # @return [List] retorna una nueva instancia de Lista.
   def initialize()
     @head = nil
     @tail = nil
     @size = 0
   end
 
+  # @return [List] método each implementado para el correcto funcionamiento del módulo Enumerable.
   def each()
     head_aux = @head
     while head_aux != nil do
@@ -16,6 +18,8 @@ attr_reader :head, :tail, :size
     end
   end
 
+  # @param etiqueta [Etiqueta] Recibe como parámetro una etiqueta que pasará a ser el valor de un nodo construido a posteriori.
+  # @return [Number] Retorna el tamaño de la lista tras expandirse esta.
   def push_back(etiqueta)
 
     node = Struct.new(:prev, :next, :value).new(nil,nil,etiqueta)
@@ -34,6 +38,8 @@ attr_reader :head, :tail, :size
 
   end
 
+  # @param etiqueta [Etiqueta] Recibe como parámetro una etiqueta que pasará a ser el valor de un nodo construido a posteriori.
+  # @return [Number] Retorna el tamaño de la lista tras expandirse esta.
   def push_front(etiqueta)
 
     node = Struct.new(:prev, :next, :value).new(nil,nil,etiqueta)
@@ -52,6 +58,7 @@ attr_reader :head, :tail, :size
 
   end
 
+  # @return [Number] Retorna el tamaño de la lista tras decrementarse esta.
   def pop_front()
     aux = @head
     @head = @head.next
@@ -61,6 +68,7 @@ attr_reader :head, :tail, :size
     @size -= 1
   end
 
+  # @return [Number] Retorna el tamaño de la lista tras decrementarse esta.
   def pop_back()
     aux = @tail
     @tail = @tail.prev
@@ -70,6 +78,8 @@ attr_reader :head, :tail, :size
     @size -= 1
   end
 
+  # @param position [Number] recibe como parámetro la posición de la lista a inspeccionar.
+  # @return [Struct] retorna un struct que en el que está encapsulado el nodo.
   def [](position)
     aux = @head
       position.times do
@@ -78,6 +88,9 @@ attr_reader :head, :tail, :size
     aux
   end
 
+  # @param a [Struct] nodo a intercambiar.
+  # @param b [Struct] nodo a intercambiar.
+  # @return [Struct]
   def swap(a,b)
 
     if @size == 2
@@ -112,6 +125,7 @@ attr_reader :head, :tail, :size
 
     end
 
+  # @return [Struct]
   def clasificar_etiquetas
     ordenado = false
     aux_ = @head
@@ -131,6 +145,7 @@ attr_reader :head, :tail, :size
 
     end
 
+  # @return [Struct]
   def clasificar_imc
     ordenado = false
     aux_ = @head
@@ -149,6 +164,7 @@ attr_reader :head, :tail, :size
       end
   end
 
+  # @return [String] retorna una cadena con la información de todos los nodos de la lista.
   def to_s
     aux_ = @head
     s = ""

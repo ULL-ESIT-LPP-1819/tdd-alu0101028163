@@ -2,6 +2,8 @@ class Etiqueta
   include Comparable
   attr_reader :valor_energetico, :grasas , :hidratos_carbono, :fibra_alimentaria, :proteinas, :sal, :vitamina, :porciones, :cantidad_porciones, :tamanio_porciones
 
+  # @param [Etiqueta] recibe como parámetro otra instancia de la clase Etiqueta con la que va a compararse
+  # @return [Number] retorna -1,0 o 1.
   def <=>(etiqueto)
     @valor_energetico <=> etiqueto.valor_energetico
   end
@@ -16,6 +18,7 @@ class Etiqueta
   # @param porciones [Bool] indica si el producto viene o no en porciones
   # @param cantidad_porciones [Number]
   # @param tamanio_porciones [Number]
+  # @return [Etiqueta] retorna una nueva instancia de Etiqueta.
 
   def initialize(valor_energetico, grasas, hidratos_carbono, fibra_alimentaria, proteinas, sal, vitamina, porciones , cantidad_porciones, tamanio_porciones)
     @valor_energetico = valor_energetico
