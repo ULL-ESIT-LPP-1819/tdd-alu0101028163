@@ -15,7 +15,7 @@ class Paciente_obeso < Paciente
     # @param pl_bicipital [Number] longitud del pliege bicipital del pariente.
     # @param pl_subescapular [Number] longitud del pliege subescapular del pariente.
     # @param pl_suprailiaco [Number] longitud del pliege suprailiaco del pariente.
-    # @return [Paciente_Obeso] retorna una nueva instancia del Paciente_Obeso.
+    # @return [Paciente_Obeso] retorna una instancia del Paciente_Obeso.
     def initialize(nombre, peso, talla, edad, sexo, cir_cintura, cir_cadera, cir_brazo, pl_tricipital, pl_bicipital, pl_subescapular, pl_suprailiaco)
       super(nombre, peso, talla, edad, sexo)
       @cir_cintura = cir_cintura
