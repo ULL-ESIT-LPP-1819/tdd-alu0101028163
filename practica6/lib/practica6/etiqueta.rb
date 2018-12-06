@@ -5,7 +5,18 @@ class Etiqueta
   def <=>(etiqueto)
     @valor_energetico <=> etiqueto.valor_energetico
   end
-  
+
+  # @param valor_energetico [Array] expresado en kJ y en kCal
+  # @param grasas [Array] donde tenemos las grasas saturadas, monoinsaturadas y poliinsaturadas.
+  # @param hidratos_carbono [Array] donde están contenidos azúcares, polialcoles y el almidón.
+  # @param fibra_alimentaria [Number]
+  # @param proteinas [Number]
+  # @param sal [Number]
+  # @param vitamina [Number]
+  # @param porciones [Bool] indica si el producto viene o no en porciones
+  # @param cantidad_porciones [Number]
+  # @param tamanio_porciones [Number]
+
   def initialize(valor_energetico, grasas, hidratos_carbono, fibra_alimentaria, proteinas, sal, vitamina, porciones , cantidad_porciones, tamanio_porciones)
     @valor_energetico = valor_energetico
     @grasas = grasas
@@ -19,18 +30,21 @@ class Etiqueta
     @tamanio_porciones = tamanio_porciones
   end
 
+  # @return [Number] retorna la suma de las grasas.
   def total_grasas()
     sum = 0
     @grasas.each { |a| sum+= a }
     sum
   end
 
+  # @return [Number] retorna la suma de los hidratos de carbono.
   def total_hidratos()
     sum = 0
     @hidratos_carbono.each { |a| sum+= a}
     sum
   end
 
+  # @return [Number] retorna la energía que aportan las grasas saturadas.
   def energia_g_saturadas()
     grasas = @grasas
     energia_total = []
@@ -39,6 +53,7 @@ class Etiqueta
     energia_total
   end
 
+  # @return [Number] retorna la energía que aportan las grasas monoinsaturadas.
   def energia_g_monoinsaturadas()
     grasas = @grasas
     energia_total = []
@@ -47,6 +62,7 @@ class Etiqueta
     energia_total
   end
 
+  # @return [Number] retorna la energía que aportan las grasas poliinsaturadas.
   def energia_g_polinsaturadas()
     grasas = @grasas
     energia_total = []
@@ -55,6 +71,7 @@ class Etiqueta
     energia_total
   end
 
+  # @return [Number] retorna la energía que aportan los azúcares.
   def energia_azucares()
     hidratos = @hidratos_carbono
     energia_total = []
@@ -63,6 +80,7 @@ class Etiqueta
     energia_total
   end
 
+  # @return [Number] retorna la energía que aportan los polialcoles.
   def energia_polialcoles()
     hidratos = @hidratos_carbono
     energia_total = []
@@ -71,6 +89,7 @@ class Etiqueta
     energia_total
   end
 
+  # @return [Number] retorna la energía que aporta el almidón.
   def energia_almidon()
     hidratos = @hidratos_carbono
     energia_total = []
@@ -79,6 +98,7 @@ class Etiqueta
     energia_total
   end
 
+  # @return [Number] retorna la energía que aporta la fibra.
   def energia_fibra()
     fibra_alimentaria = @fibra_alimentaria
     energia_total = []
@@ -87,6 +107,7 @@ class Etiqueta
     energia_total
   end
 
+  # @return [Number] retorna la energía que aportan las proteínas.
   def energia_proteinas()
     proteinas = @proteinas
     energia_total = []
@@ -95,6 +116,7 @@ class Etiqueta
     energia_total
   end
 
+  # @return [Number] retorna la energía que aporta la sal.
   def energia_sal()
     sal = @sal
     energia_total = []
@@ -103,6 +125,7 @@ class Etiqueta
     energia_total
   end
 
+  # @return [Number] retorna el valor energético total.
   def valor_energetico_total()
     kj = []
     sum = 0
@@ -130,6 +153,7 @@ class Etiqueta
     kj
   end
 
+  # @return [String] retorna una cadena con la información de la etiqueta.
   def to_s
     s = "Valor energético por 100g o 100ml de producto .... #{@valor_energetico[0]} kcal / #{@valor_energetico[1]} kj
     Grasas ........ #{total_grasas} gr
