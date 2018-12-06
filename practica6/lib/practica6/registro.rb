@@ -3,10 +3,25 @@ class Registro
   include Comparable
   attr_reader :nombre, :peso, :talla, :edad, :sexo, :cir_cintura, :cir_cadera, :cir_brazo, :pl_tricipital, :pl_bicipital, :pl_subescapular, :pl_suprailiaco, :imc
 
+  # @param [Registro] recibe como parámetro otra instancia de la clase Registro con la que va a compararse
+  # @return [Number] retorna -1,0 o 1.
   def <=>(anOther)
     @imc <=> anOther.imc
   end
 
+  # @param nombre [number] nombre del paciente.
+  # @param peso [number] peso del paciente.
+  # @param talla [number] altura del paciente en metros.
+  # @param edad [number] edad del paciente.
+  # @param sexo [number] sexo del paciente, 0 corresponde a hombre y 1 a mujer.
+  # @param cir_cintura [Number] circunferencia de la cintura del paciente.
+  # @param cir_cadera [Number] circunferencia de la cadera del paciente.
+  # @param cir_brazo [Number] circunferencia del brazo del paciente.
+  # @param pl_tricipital [Number] longitud del pliege tricipital del pariente.
+  # @param pl_bicipital [Number] longitud del pliege bicipital del pariente.
+  # @param pl_subescapular [Number] longitud del pliege subescapular del pariente.
+  # @param pl_suprailiaco [Number] longitud del pliege suprailiaco del pariente.
+  # @return [Paciente_Obeso] retorna una instancia de la clase Registro.
   def initialize(nombre, peso, talla, edad, sexo, cir_cintura = nil, cir_cadera = nil, cir_brazo = nil, pl_tricipital = nil, pl_bicipital = nil, pl_subescapular = nil, pl_suprailiaco = nil)
     @nombre = nombre
     @peso = peso
@@ -23,16 +38,19 @@ class Registro
     @imc = self.calcular_imc
   end
 
+  # @return [Number] retorna el índice de masa corporal.
   def calcular_imc
     imc = @peso / (@talla * @talla)
     imc = (imc * 100).round() / 100.0
   end
 
+  # @return [Number] retorna el porcentaje de grasas.
   def calcular_pctj_grasa
     pctj_grasa = (1.2 * self.calcular_imc()) + (0.23 * @edad) - (10.9 * @sexo) - 5.4
     pctj_grasa = (pctj_grasa*100).round() / 100.0
   end
 
+  # @return [Number] retorna el rcc.
   def calcular_rcc
     cir_cintura = calcular_media(@cir_cintura)
     cir_cadera = calcular_media(@cir_cadera)
@@ -40,6 +58,7 @@ class Registro
     rcc = (rcc * 100).round() / 100.0
   end
 
+  # @return [String] retorna una cadena donde se evalúa el índice de masa corporal.
   def evaluar_imc
 
     imc = calcular_imc()
@@ -60,6 +79,7 @@ class Registro
 
   end
 
+  # @return [String] retorna una cadena donde se evalúa el rcc.
   def evaluar_rcc
 
     rcc = calcular_rcc()
@@ -86,6 +106,7 @@ class Registro
     end
   end
 
+  # @return [Number] calcula la media de los datos.
   def calcular_media(datos_)
 
     mean = 0.0
@@ -95,6 +116,7 @@ class Registro
 
   end
 
+  # @return [String] muestra la información del registro.
   def mostrar_info()
 
     print("Nombre: ", @nombre)
