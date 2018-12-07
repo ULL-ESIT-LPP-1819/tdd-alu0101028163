@@ -181,7 +181,7 @@ end
           end
     end
 
-          context "Si teng una lista de etiquetas de valoración nutricional de invididuos" do
+          context "Si tengo una lista de etiquetas de valoración nutricional de invididuos" do
             it "debo poder ordenarlas con el método sort" do
               @lista.push_back(@Registro1)
               @lista.push_back(@Registro2)
