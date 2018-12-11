@@ -11,3 +11,7 @@ def gasto_basal(peso,talla,edad,sexo)
   end
   gasto_energetico_basal
 end
+
+def efecto_termogeno(peso,talla,edad,sexo)
+  efecto_termogeno = gasto_basal(peso,talla,edad,sexo) * 0.10
+end
