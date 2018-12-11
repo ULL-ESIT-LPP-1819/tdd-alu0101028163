@@ -11,5 +11,8 @@ RSpec.describe "generador_menu" do
     it "debe poder calcular el gasto energético basal" do
     expect(gasto_basal(@registro.peso, @registro.talla, @registro.edad, @registro.sexo)).to eq(1755)
     end
+    it "debe poder calcular el efecto termógeno" do
+    expect(efecto_termogeno(@registro.peso, @registro.talla, @registro.edad, @registro.sexo)).to eq(175.5)
+    end
   end
 end
