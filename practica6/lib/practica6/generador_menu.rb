@@ -17,6 +17,10 @@ def efecto_termogeno(peso,talla,edad,sexo, procedure)
   efecto_termogeno = procedure.call(peso,talla,edad,sexo) * 0.10
 end
 
+def gasto_actividad_fisica(peso,talla,edad,sexo, procedure, factor)
+  gasto_actividad = procedure.call(peso,talla,edad,sexo) * factor
+end
+
 # ¿Factor de actividad física es un atributo
 # que le incluyo a la clase Registro?
 
