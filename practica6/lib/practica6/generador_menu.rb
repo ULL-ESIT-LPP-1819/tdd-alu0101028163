@@ -13,12 +13,27 @@ GASTO_BASAL = lambda do |peso,talla,edad,sexo|
                gasto_energetico_basal
             end
 
+# Este es el método que tenía inicialmente
+def gasto_basal(peso,talla,edad,sexo)
+  gasto_energetico_basal = 0
+  if sexo == 0 #Es un hombre
+     gasto_energetico_basal = (10*peso) + (6.25*talla) - (5*edad) + 5
+  else
+     gasto_energetico_basal = (10*peso) + (6.25*talla) - (5*edad) - 161
+  end
+     gasto_energetico_basal
+end
+
 def efecto_termogeno(peso,talla,edad,sexo, procedure)
   efecto_termogeno = procedure.call(peso,talla,edad,sexo) * 0.10
 end
 
 def gasto_actividad_fisica(peso,talla,edad,sexo, procedure, factor)
   gasto_actividad = procedure.call(peso,talla,edad,sexo) * factor
+end
+
+def gasto_energetico_total(peso,talla,edad,sexo, procedure, factor)
+  gasto_total = gasto_actividad_fisica(peso,talla,edad,sexo,procedure,factor) + procedure.call(peso,talla,edad,sexo) + efecto_termogeno(peso,talla,edad,sexo,procedure)
 end
 
 # ¿Factor de actividad física es un atributo

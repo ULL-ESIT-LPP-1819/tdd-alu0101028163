@@ -18,7 +18,7 @@ RSpec.describe "generador_menu" do
     expect(gasto_actividad_fisica(@registro.peso, @registro.talla, @registro.edad, @registro.sexo, GASTO_BASAL, 0.12)).to eq(210.6)
     end
     it "debe poder calcular el gasto energético total" do
-    expect(gasto_total(@registro.peso, @registro.talla, @registro.edad, @registro.sexo, GASTO_BASAL, 0.12)).to eq(2141.1)  
+    expect(gasto_energetico_total(@registro.peso, @registro.talla, @registro.edad, @registro.sexo, GASTO_BASAL, 0.12)).to eq(2141.1)
     end
   end
 end
