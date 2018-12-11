@@ -9,7 +9,7 @@ RSpec.describe "generador_menu" do
     expect(peso_teorico(@registro.talla)).to eq(63.5)
     end
     it "debe poder calcular el gasto energético basal" do
-      
+    expect(gasto_basal(@registro.peso, @registro.talla, @registro.edad, @registro.sexo)).to eq(1755)
     end
   end
 end
