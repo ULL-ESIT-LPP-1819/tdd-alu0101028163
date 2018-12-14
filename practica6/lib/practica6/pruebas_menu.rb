@@ -25,3 +25,13 @@ end
 def gasto_energetico_total(peso,talla,edad,sexo,factor)
   gasto_total = gasto_actividad_fisica(peso,talla,edad,sexo,factor) + gasto_basal(peso,talla,edad,sexo) + efecto_termogeno(peso,talla,edad,sexo)
 end
+
+def verificar_cantidad(menu, peso,talla,edad,sexo,factor)
+  val_ener_menu = menu.collect{ |menu| menu.valor_energetico[0]}
+  total_val = val_ener_menu.reduce(:+)
+  gasto_total = gasto_energetico_total(peso,talla,edad,sexo,factor)
+  margen_error = (total_val * 10) / 100
+
+  return true if gasto_total <= (total_val + margen_error) && gasto_total >= (total_val - margen_error)
+  false
+end
