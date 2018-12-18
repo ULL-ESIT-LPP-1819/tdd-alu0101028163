@@ -1,7 +1,7 @@
 
 class Registro
   include Comparable
-  attr_reader :nombre, :peso, :talla, :edad, :sexo, :cir_cintura, :cir_cadera, :cir_brazo, :pl_tricipital, :pl_bicipital, :pl_subescapular, :pl_suprailiaco, :imc
+  attr_reader :nombre, :peso, :talla, :edad, :sexo, :cir_cintura, :cir_cadera, :cir_brazo, :pl_tricipital, :pl_bicipital, :pl_subescapular, :pl_suprailiaco, :imc, :factor
 
   # @param [Registro] recibe como parámetro otra instancia de la clase Registro con la que va a compararse
   # @return [Number] retorna -1,0 o 1.
@@ -22,7 +22,7 @@ class Registro
   # @param pl_subescapular [Number] longitud del pliege subescapular del pariente.
   # @param pl_suprailiaco [Number] longitud del pliege suprailiaco del pariente.
   # @return [Paciente_Obeso] retorna una instancia de la clase Registro.
-  def initialize(nombre, peso, talla, edad, sexo, cir_cintura = nil, cir_cadera = nil, cir_brazo = nil, pl_tricipital = nil, pl_bicipital = nil, pl_subescapular = nil, pl_suprailiaco = nil)
+  def initialize(nombre, peso, talla, edad, sexo, cir_cintura = nil, cir_cadera = nil, cir_brazo = nil, pl_tricipital = nil, pl_bicipital = nil, pl_subescapular = nil, pl_suprailiaco = nil, factor= nil)
     @nombre = nombre
     @peso = peso
     @talla = talla
@@ -35,6 +35,7 @@ class Registro
     @pl_bicipital = pl_bicipital
     @pl_subescapular = pl_subescapular
     @pl_suprailiaco = pl_suprailiaco
+    @factor = factor
     @imc = self.calcular_imc
   end
 

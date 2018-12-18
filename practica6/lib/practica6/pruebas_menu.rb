@@ -26,6 +26,18 @@ def gasto_energetico_total(peso,talla,edad,sexo,factor)
   gasto_total = gasto_actividad_fisica(peso,talla,edad,sexo,factor) + gasto_basal(peso,talla,edad,sexo) + efecto_termogeno(peso,talla,edad,sexo)
 end
 
+def gasto_energetico_total_(persona)
+  gasto_total = gasto_actividad_fisica(persona.peso, persona.talla, persona.edad, persona.sexo, persona.factor) + gasto_basal(persona.peso, persona.talla, persona.edad, persona.sexo) + efecto_termogeno(persona.peso, persona.talla, persona.edad, persona.sexo)
+end
+
+def valor_energetico_menu(menu)
+  sum = 0
+  for etiqueta in menu do
+    sum += etiqueta.valor_energetico[0]
+  end
+  sum
+end
+
 def verificar_cantidad(menu, peso,talla,edad,sexo,factor)
   val_ener_menu = menu.collect{ |menu| menu.valor_energetico[0]}
   total_val = val_ener_menu.reduce(:+)
@@ -34,4 +46,18 @@ def verificar_cantidad(menu, peso,talla,edad,sexo,factor)
 
   return true if gasto_total <= (total_val + margen_error) && gasto_total >= (total_val - margen_error)
   false
+end
+
+def obtener_array(arr_menu, list_val)
+  arr_total = []
+
+  for i in arr_menu do
+    arr_total.push(valor_energetico_menu(arr_menu[i]))
+  end
+
+  for i in list_val do
+    arr_total.push(gasto_energetico_total_(lista_val[i]))
+  end
+
+
 end
