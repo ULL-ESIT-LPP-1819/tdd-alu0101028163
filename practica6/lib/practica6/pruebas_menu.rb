@@ -1,6 +1,7 @@
 #require "./list.rb"
 #require "./etiqueta.rb"
 #require "./registro.rb"
+require "benchmark"
 
 def peso_teorico(talla)
   peso_teorico_ideal = (talla - 150) * 0.75 + 50
@@ -64,8 +65,21 @@ def swap(arr, a,b)
     arr[b] = temp
 end
 
-def obtener_array_each(arr_menu, list_val)
+def obtener_array_sort(arr_menu, list_val)
+Benchmark.bm do |x|
+  x.report{
+arr_total = []
+arr_menu.each {|menu| arr_total.push(valor_energetico_menu(menu))}
+list_val.each {|nodo| arr_total.push(gasto_energetico_total_(nodo))}
 
+arr_total.sort
+} end
+
+end
+
+def obtener_array_each(arr_menu, list_val)
+  Benchmark.bm do |x|
+    x.report{
   arr_total = []
 
   arr_menu.each {|menu| arr_total.push(valor_energetico_menu(menu))}
@@ -92,13 +106,14 @@ def obtener_array_each(arr_menu, list_val)
 
     i += 1
     end
-
     arr_total
-
+}end
 end
 
 
 def obtener_array_for(arr_menu, list_val)
+  Benchmark.bm do |x|
+    x.report{
   arr_total = []
 
   # Insertamos en el array el contenido del valor energético de cada menú.
@@ -136,7 +151,7 @@ def obtener_array_for(arr_menu, list_val)
   end
 
   arr_total
-
+}end
 end
 
 
@@ -186,6 +201,8 @@ lista_val.push_back(registro9)
 lista_val.push_back(registro10)
 
 
+total_arr = obtener_array_sort(arr_menu, lista_val)
 total_arr = obtener_array_each(arr_menu, lista_val)
-puts total_arr
+total_arr = obtener_array_for(arr_menu, lista_val)
+
 =end

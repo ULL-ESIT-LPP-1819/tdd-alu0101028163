@@ -1,0 +1,3 @@
+service-name: travis-ci
+spec.add_development_dependency "coveralls"
+
