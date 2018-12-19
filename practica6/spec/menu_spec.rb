@@ -33,6 +33,23 @@ RSpec.describe "pruebas_menu" do
     @menu9 = [@etiqueta2,@etiqueta1]
     @menu10 = [@etiqueta4,@etiqueta6,@etiqueta5,@etiqueta3]
   end
+  before :all do
+    @arr_menu = [@menu1,@menu2,@menu3,@menu4,@menu5,@menu6,@menu7,@menu8,@menu9,@menu10]
+  end
+
+  before :all do
+    @lista_val = List.new()
+    @lista_val.push_back(@registro1)
+    @lista_val.push_back(@registro2)
+    @lista_val.push_back(@registro3)
+    @lista_val.push_back(@registro4)
+    @lista_val.push_back(@registro5)
+    @lista_val.push_back(@registro6)
+    @lista_val.push_back(@registro7)
+    @lista_val.push_back(@registro8)
+    @lista_val.push_back(@registro9)
+    @lista_val.push_back(@registro10)
+  end
 
   context "En las pruebas del menú" do
     it "se debe poder calcular el peso teórico ideal" do
@@ -59,23 +76,32 @@ RSpec.describe "pruebas_menu" do
     expect(verificar_cantidad(@menu3,@registro4.peso, @registro4.talla, @registro4.edad, @registro4.sexo, 0.54)).to eq(true)
     expect(verificar_cantidad(@menu1,@registro5.peso, @registro5.talla, @registro5.edad, @registro5.sexo, 0.12)).to eq(false)
     end
+  end
 
-    it "debemos poder crear un array de diez elementos menu" do
-      arr_menu = [@menu1,@menu2,@menu3,@menu4,@menu5,@menu6,@menu7,@menu8,@menu9,@menu10]
+  context "A partir de un array de menús y una lista de registros" do
+    it "debe poder crearse un nuevo array con sus elementos ordenados usando bucles for" do
+      arr_ordenado = obtener_array_for(@arr_menu,@lista_val)
+      i =  0
+      while ( i < arr_ordenado.length - 1) do
+        expect(arr_ordenado[i]).to be < arr_ordenado[i+1]
+        i += 1
+      end
     end
-
-    it "debemos poder crear una lista de diez valoraciones nutricionales de un individuo" do
-      lista_val = List.new()
-      lista_val.push_back(@registro1)
-      lista_val.push_back(@registro2)
-      lista_val.push_back(@registro3)
-      lista_val.push_back(@registro4)
-      lista_val.push_back(@registro5)
-      lista_val.push_back(@registro6)
-      lista_val.push_back(@registro7)
-      lista_val.push_back(@registro8)
-      lista_val.push_back(@registro9)
-      lista_val.push_back(@registro10)
+    it "debe poder crearse un nuevo array con sus elementos ordenados usando each" do
+      arr_ordenado = obtener_array_each(@arr_menu,@lista_val)
+      i =  0
+      while ( i < arr_ordenado.length - 1) do
+        expect(arr_ordenado[i]).to be < arr_ordenado[i+1]
+        i += 1
+      end
+    end
+    it "debe poder crearse un nuevo array con sus elementos ordenados usando sort" do
+      arr_ordenado = obtener_array_sort(@arr_menu,@lista_val)
+      i =  0
+      while ( i < arr_ordenado.length - 1) do
+        expect(arr_ordenado[i]).to be < arr_ordenado[i+1]
+        i += 1
+      end
     end
   end
 
