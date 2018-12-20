@@ -1,3 +1,2 @@
 service-name: travis-ci
 repo_token: 6XX7K5LVINsB4DRAcfs6PZnbIrNoPsqmn
-spec.add_development_dependency "coveralls"
