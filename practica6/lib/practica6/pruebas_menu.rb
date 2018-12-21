@@ -155,7 +155,7 @@ def obtener_array_for(arr_menu, list_val)
 end
 
 
-
+# Código para poder visualizar los valores del benchmark
 =begin
 registro1 = Registro.new("Adrian", 80, 168, 20, 0, 132.3 , 122.3, 140.3 , 12.3 , 15.2, 11.4, 10.5,0.12)
 registro2 = Registro.new("Gamma", 120, 190, 32, 0, 132.3 , 122.3, 140.3 , 12.3 , 15.2, 11.4, 10.5, 0.0)
