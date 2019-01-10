@@ -4,20 +4,20 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require "practica6/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = "practica6"
+  spec.name          = "alu0101028163"
   spec.version       = Practica6::VERSION
   spec.authors       = ["alu0101028163"]
   spec.email         = ["alu0101028163@ull.edu.es"]
 
   spec.summary       = %q{Práctica 6 de Lenguajes y paradigmas de programación}
   spec.description   = %q{Práctica 6 de Lenguajes y paradigmas de programación utilizando TDD}
-  spec.homepage      = "https://github.com/ULL-ESIT-LPP-1819/tdd-alu0101028163.git"
+  spec.homepage      = 'http://rubygems.org/gems/alu0101028163'
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
   # to allow pushing to a single host or delete this section to allow pushing to any host.
   if spec.respond_to?(:metadata)
-    spec.metadata["allowed_push_host"] = " "
+    spec.metadata["allowed_push_host"] = "https://rubygems.org"
 
     spec.metadata["homepage_uri"] = spec.homepage
     spec.metadata["source_code_uri"] = " "

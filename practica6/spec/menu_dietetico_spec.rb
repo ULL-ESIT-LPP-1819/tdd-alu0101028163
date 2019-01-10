@@ -67,6 +67,26 @@ RSpec.describe Menu do
       expect(@menu.v_energetico_total).to eq(1052.92)
     end
 
+    it "Debe imprimirse su contenido"do
+      expect(@menu.to_s). to eq(%Q{Lunes				Composición Nutricional
+============================================================
+                                grasas	carbohidratos	proteinas fibra   sal   azucares   valor energetico
+
+Desayuno
+"Pan de trigo integral"           3.3   54.0            11.0       2.3    0.06    5.5         316.66
+"Actimel"                         3.4   4.4             3.6               0.05                62.9
+
+Almuerzo
+"Arroz"                           0.9   81.6            6.67       1.4    0.04    2.3         373.42
+"Lentejas"                        0.4   20.0            9.0        8.0    0.02                135.72
+"Naranja"                         0.12  11.75           0.94       2.4            6.4         82.24
+
+Cena
+"Leche entera hacendado"          3.6   4.6             3.1               0.13    4.5         81.98
+
+Valor Energetico Total: 1052.92})
+    end
+
   end
 
 end
